@@ -1,5 +1,5 @@
 <template>
-  <div class="asda">
+  <div class="editor">
     <tinymce-editor ref="editor" v-model="value"></tinymce-editor>
   </div>
 </template>
@@ -19,8 +19,7 @@ export default {
 </script>
 
 <style scoped>
-.asda {
+.editor {
   margin: 20px;
-  border: 2px solid fuchsia;
 }
 </style>
