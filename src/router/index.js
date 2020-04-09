@@ -37,6 +37,12 @@ export const constantRoutes = [
     meta: { title: '案列', icon: 'example' },
     children: [
       {
+        path: 'richText',
+        name: 'richText',
+        component: () => import('@/views/template/richText'),
+        meta: { title: '富文本', icon: 'table' }
+      },
+      {
         path: 'table',
         name: 'Table',
         component: () => import('@/views/table/index'),
