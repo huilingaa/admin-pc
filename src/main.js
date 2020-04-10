@@ -14,7 +14,8 @@ import router from './router'
 
 import '@/icons' // icon
 import '@/permission' // permission control
-
+import echarts from 'echarts'
+Vue.prototype.$echarts = echarts
 
 if (process.env.NODE_ENV === 'production') {
   const { mockXHR } = require('../mock')

@@ -53,6 +53,12 @@ export const constantRoutes = [
         name: 'Tree',
         component: () => import('@/views/tree/index'),
         meta: { title: '树状图', icon: 'tree' }
+      },
+      {
+        path: 'echart',
+        name: 'echart',
+        component: () => import('@/views/template/echart'),
+        meta: { title: '图表', icon: 'tree' }
       }
     ]
   },
@@ -93,7 +99,7 @@ const router = createRouter()
 
 export function resetRouter() {
   const newRouter = createRouter()
-  router.matcher = newRouter.matcher 
+  router.matcher = newRouter.matcher
 }
 
 export default router
