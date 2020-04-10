@@ -5,6 +5,8 @@
 </template>
 
 <script>
+// 相关文档
+// http://tinymce.ax-z.cn/configure/content-appearance.php
 // https://www.tiny.cloud/docs/api/
 // 配置文件
 import load from "./dynamicLoadScript";
@@ -84,6 +86,8 @@ export default {
   watch: {
     value(val) {
       if (!this.hasChange && this.hasInit) {
+        console.log(val);
+         console.log('wreew');
         this.$nextTick(() =>
           window.tinymce.get(this.tinymceId).setContent(val || "")
         );
@@ -134,7 +138,8 @@ export default {
         imagetools_cors_hosts: ["www.tinymce.com", "codepen.io"],
         default_link_target: "_blank",
         link_title: false,
-        nonbreaking_force_tab: true, // inserting nonbreaking space &nbsp; need Nonbreaking Space Plugin
+        nonbreaking_force_tab: true, 
+        // 每次初始化编辑器实例时要执行的函数
         init_instance_callback: editor => {
           if (_this.value) {
             editor.setContent(_this.value);
@@ -145,6 +150,7 @@ export default {
             this.$emit("input", editor.getContent());
           });
         },
+        // 所述onSetup指定的函数在首次创建面板时被调用
         setup(editor) {
           editor.on("FullscreenStateChanged", e => {
             _this.fullscreen = e.state - 1000;
