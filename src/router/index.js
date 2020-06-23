@@ -69,8 +69,6 @@ export const constantRoutes = [
     ]
   },
 
-
-
   {
     path: 'external-link',
     component: Layout,
@@ -86,7 +84,7 @@ export const constantRoutes = [
 ]
 
 const createRouter = () => new Router({
-  scrollBehavior: () => ({ y: 0 }),  // 每次切换组件的时候让页面回到顶部
+  scrollBehavior: () => ({ y: 0 }), // 每次切换组件的时候让页面回到顶部
   routes: constantRoutes
 })
 

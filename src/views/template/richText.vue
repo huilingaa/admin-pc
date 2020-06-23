@@ -1,21 +1,21 @@
 <template>
   <div class="editor">
-    <tinymce-editor ref="editor" v-model="value"></tinymce-editor>
+    <tinymce-editor ref="editor" v-model="value" />
   </div>
 </template>
 
 <script>
-import tinymceEditor from "../../components/tinymce/index";
+import tinymceEditor from '../../components/tinymce/index'
 export default {
-  data() {
-    return {
-      value: ""
-    };
-  },
   components: {
     tinymceEditor
+  },
+  data() {
+    return {
+      value: ''
+    }
   }
-};
+}
 </script>
 
 <style scoped>

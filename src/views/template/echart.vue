@@ -1,6 +1,6 @@
 <template>
   <div class="echart">
-    <div style="width:100%;height:100%" ref="chart"></div>
+    <div ref="chart" style="width:100%;height:100%" />
   </div>
 </template>
 <script>
@@ -8,39 +8,42 @@
 // https://www.echartsjs.com/zh/index.html
 export default {
   data() {
-    return {};
+    return {}
+  },
+  mounted() {
+    this.initCharts()
   },
   methods: {
     initCharts() {
-      let myChart = this.$echarts.init(this.$refs.chart);
+      const myChart = this.$echarts.init(this.$refs.chart)
       myChart.setOption({
-        backgroundColor: "#344b58",
+        backgroundColor: '#344b58',
         title: {
           top: 20,
           left: 40,
-          text: "堆叠区域图",
+          text: '堆叠区域图',
           textStyle: {
-            fontWeight: "normal",
+            fontWeight: 'normal',
             fontSize: 16,
-            color: "#F1F1F3"
+            color: '#F1F1F3'
           }
         },
         tooltip: {
-          trigger: "axis",
+          trigger: 'axis',
 
           axisPointer: {
-            type: "cross",
+            type: 'cross',
             label: {
-              backgroundColor: "#6a7985"
+              backgroundColor: '#6a7985'
             }
           }
         },
         legend: {
           top: 20,
-          data: ["邮件营销", "联盟广告", "视频广告", "直接访问", "搜索引擎"],
+          data: ['邮件营销', '联盟广告', '视频广告', '直接访问', '搜索引擎'],
           textStyle: {
             fontSize: 12,
-            color: "#F1F1F3"
+            color: '#F1F1F3'
           }
         },
         toolbox: {
@@ -49,84 +52,81 @@ export default {
           }
         },
         grid: {
-          top: "10%",
-          left: "3%",
-          right: "4%",
-          bottom: "2%",
+          top: '10%',
+          left: '3%',
+          right: '4%',
+          bottom: '2%',
           containLabel: true
         },
         xAxis: [
           {
-            type: "category",
+            type: 'category',
             boundaryGap: false,
             axisLine: {
               lineStyle: {
-                color: "#90979c"
+                color: '#90979c'
               }
             },
-            data: ["周一", "周二", "周三", "周四", "周五", "周六", "周日"]
+            data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日']
           }
         ],
         yAxis: [
           {
-            type: "value",
+            type: 'value',
             axisLine: {
               lineStyle: {
-                color: "#90979c"
+                color: '#90979c'
               }
             }
           }
         ],
         series: [
           {
-            name: "邮件营销",
-            type: "line",
-            stack: "总量",
+            name: '邮件营销',
+            type: 'line',
+            stack: '总量',
             areaStyle: {},
             data: [120, 132, 101, 134, 90, 230, 210]
           },
           {
-            name: "联盟广告",
-            type: "line",
-            stack: "总量",
+            name: '联盟广告',
+            type: 'line',
+            stack: '总量',
             areaStyle: {},
             data: [220, 182, 191, 234, 290, 330, 310]
           },
           {
-            name: "视频广告",
-            type: "line",
-            stack: "总量",
+            name: '视频广告',
+            type: 'line',
+            stack: '总量',
             areaStyle: {},
             data: [150, 232, 201, 154, 190, 330, 410]
           },
           {
-            name: "直接访问",
-            type: "line",
-            stack: "总量",
+            name: '直接访问',
+            type: 'line',
+            stack: '总量',
             areaStyle: {},
             data: [320, 332, 301, 334, 390, 330, 320]
           },
           {
-            name: "搜索引擎",
-            type: "line",
-            stack: "总量",
+            name: '搜索引擎',
+            type: 'line',
+            stack: '总量',
             label: {
               normal: {
                 show: true,
-                position: "top"
+                position: 'top'
               }
             },
             areaStyle: {},
             data: [820, 932, 901, 934, 1290, 1330, 1320]
           }
         ]
-      });
+      })
     }
-  },
-  mounted() {
-    this.initCharts();
   }
-};
+}
 </script>
 
 <style>

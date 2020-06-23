@@ -34,8 +34,8 @@ const actions = {
     return new Promise((resolve, reject) => {
       login({ username: username.trim(), password: password }).then(response => {
         const { data } = response
-        commit('SET_TOKEN', data.token)  //mutations下setToken
-        setToken(data.token)     // Cookies下setToken
+        commit('SET_TOKEN', data.token) // mutations下setToken
+        setToken(data.token) // Cookies下setToken
         resolve()
       }).catch(error => {
         reject(error)

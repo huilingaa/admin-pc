@@ -127,7 +127,6 @@ export default {
 
 <style lang="scss">
 
-
 $bg:#283443;
 $light_gray:#fff;
 $cursor: #fff;
