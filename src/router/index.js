@@ -20,12 +20,12 @@ export const constantRoutes = [
   {
     path: '/',
     component: Layout,
-    redirect: '/dashboard',
+    redirect: '/home',
     children: [{
-      path: 'dashboard',
-      name: 'Dashboard',
-      component: () => import('@/views/dashboard/index'),
-      meta: { title: '主页', icon: 'dashboard' }
+      path: 'home',
+      name: 'home',
+      component: () => import('@/views/home/index'),
+      meta: { title: '主页', icon: 'home' }
     }]
   },
 
@@ -45,13 +45,13 @@ export const constantRoutes = [
       {
         path: 'table',
         name: 'Table',
-        component: () => import('@/views/table/index'),
+        component: () => import('@/views/template/table'),
         meta: { title: '表格', icon: 'table' }
       },
       {
         path: 'tree',
         name: 'Tree',
-        component: () => import('@/views/tree/index'),
+        component: () => import('@/views/template/tree'),
         meta: { title: '树状图', icon: 'tree' }
       },
       {
@@ -59,22 +59,17 @@ export const constantRoutes = [
         name: 'echart',
         component: () => import('@/views/template/echart'),
         meta: { title: '图表', icon: 'tree' }
-      }
-    ]
-  },
-
-  {
-    path: '/form',
-    component: Layout,
-    children: [
+      },
       {
-        path: 'index',
+        path: 'form',
         name: 'Form',
-        component: () => import('@/views/form/index'),
+        component: () => import('@/views/template/form'),
         meta: { title: '表单', icon: 'form' }
       }
     ]
   },
+
+
 
   {
     path: 'external-link',
