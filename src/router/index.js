@@ -91,12 +91,13 @@ export const constantRoutes = [
 ]
 
 const createRouter = () => new Router({
-  scrollBehavior: () => ({ y: 0 }),
+  scrollBehavior: () => ({ y: 0 }),  // 每次切换组件的时候让页面回到顶部
   routes: constantRoutes
 })
 
 const router = createRouter()
 
+// 这个是重置路由用的，很有用，别看这么几行代码，在用户退出时调用
 export function resetRouter() {
   const newRouter = createRouter()
   router.matcher = newRouter.matcher
