@@ -3,7 +3,7 @@ import Router from 'vue-router'
 Vue.use(Router)
 
 import Layout from '@/layout'
-
+// 基本路由
 export const constantRoutes = [
   {
     path: '/login',
@@ -82,7 +82,23 @@ export const constantRoutes = [
 
   { path: '*', redirect: '/404', hidden: true }
 ]
+// 需要根据用户角色动态加载的路由
+export const asyncRoutes = [
+  {
+    path: '/userInfo',
+    component: Layout,
 
+    children: [{
+      path: 'index',
+      component: () => import('@/views/userInfo/index'),
+      meta: { title: '外链', icon: 'link' }
+    }]
+  },
+
+  { path: '*', redirect: '/404', hidden: true }
+]
+
+// 实例化
 const createRouter = () => new Router({
   scrollBehavior: () => ({ y: 0 }), // 每次切换组件的时候让页面回到顶部
   routes: constantRoutes
