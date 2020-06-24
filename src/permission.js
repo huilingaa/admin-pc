@@ -26,9 +26,10 @@ router.beforeEach(async (to, from, next) => {
           const { roles } = await store.dispatch('user/getInfo')  //得到用户信息
        
           const accessRoutes = await store.dispatch('permission/generateRoutes', roles)    // 依据角色生成可访问的路由表
-          console.log(accessRoutes)
+          console.log('权限路由',accessRoutes)
+          console.log('之前路由',router)
           router.addRoutes(accessRoutes)  // 动态添加可访问路由表
-          console.log(router)
+          console.log('最后路由',router)
           next({ ...to, replace: true })  // hack方法 确保addRoutes已完成
         } catch (error) {
           // 移除token，并转到登录页以重新登录

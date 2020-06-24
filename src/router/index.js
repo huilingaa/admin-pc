@@ -80,23 +80,57 @@ export const constantRoutes = [
     ]
   },
 
-  { path: '*', redirect: '/404', hidden: true }
+  // { path: '*', redirect: '/404', hidden: true }
 ]
-// 需要根据用户角色动态加载的路由
+
+
+//异步挂载的路由
+//动态需要根据权限加载的路由表 
 export const asyncRoutes = [
   {
-    path: '/userInfo',
+    path: '/permission',
     component: Layout,
-
-    children: [{
-      path: 'index',
-      component: () => import('@/views/userInfo/index'),
-      meta: { title: '外链', icon: 'link' }
-    }]
+    redirect: '/permission/page',
+    alwaysShow: true, // will always show the root menu
+    name: 'Permission',
+    meta: {
+      title: 'Permission',
+      icon: 'lock',
+      roles: ['admin', 'editor'] // you can set roles in root nav
+    },
+    children: [
+      {
+        path: 'page',
+        component: () => import('@/views/permission/page'),
+        name: 'PagePermission',
+        meta: {
+          title: 'Page Permission',
+          roles: ['admin'] // or you can only set roles in sub nav
+        }
+      }
+      
+    ]
   },
+
+  
 
   { path: '*', redirect: '/404', hidden: true }
 ]
+// // 需要根据用户角色动态加载的路由
+// export const asyncRoutes = [
+//   {
+//     path: '/userInfo',
+//     component: Layout,
+
+//     children: [{
+//       path: 'index',
+//       component: () => import('@/views/userInfo/index'),
+//       meta: { title: '外链', icon: 'link' }
+//     }]
+//   },
+
+//   { path: '*', redirect: '/404', hidden: true }
+// ]
 
 // 实例化
 const createRouter = () => new Router({

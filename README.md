@@ -28,6 +28,7 @@ webpack-dev-server的proxy来解决，开发环境用nginx反代理一下就好�
   |--}
 
 ```
+4：nginx反代理？ 
 
 ### 可视化分析工具
 webpack-bundle-analyzer 
