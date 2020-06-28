@@ -7,9 +7,9 @@ function resolve(dir) {
 }
 
 const name = defaultSettings.title || 'vue Admin Template' // page title
-
 const port = process.env.port || process.env.npm_config_port || 9528 // dev port
-
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
+  .BundleAnalyzerPlugin;
 module.exports = {
   publicPath: '/',
   outputDir: 'dist',
@@ -107,5 +107,12 @@ module.exports = {
           config.optimization.runtimeChunk('single')
         }
       )
+  },
+  configureWebpack: config => {
+    if (process.env.NODE_ENV === 'production') {
+        if (process.env.ANALYZ_ENV) {
+          config.plugins.push(new BundleAnalyzerPlugin());
+        }
+    }
   }
 }

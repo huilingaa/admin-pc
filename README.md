@@ -1,7 +1,7 @@
 ## 基础功能
 ### 跨域问题
 首先前后端交互不可避免的就会遇到跨域问题，我司现在全是用 cors来解决的，如果你司后端嫌麻烦不肯配置的话，dev环境也可以通过
-webpack-dev-server的proxy来解决，开发环境用nginx反代理一下就好了，具体配置这里就不展开了。
+webpack-dev-server的proxy来解决，开发环境用nginx反代理一下就好了。
 1：在项目根目录创建vue.config.js
 2：配置如下
 ```
@@ -28,7 +28,11 @@ webpack-dev-server的proxy来解决，开发环境用nginx反代理一下就好�
   |--}
 
 ```
-4：nginx反代理？ 
+3：nginx反向代理
+```
+修改Nginx的配置文件 xxx.conf
+原理：通过Nginx反向代理将对真实服务器的请求转移到本机服务器来避免浏览器的"同源策略限制"
+```
 
 ### 可视化分析工具
 webpack-bundle-analyzer 
