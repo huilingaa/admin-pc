@@ -38,8 +38,18 @@ webpack-dev-server的proxy来解决，开发环境用nginx反代理一下就好�
 webpack-bundle-analyzer 
 
 ###  eslint
-unit测试
-npm run lint -- --fix
+#### 全局安装 ESLint
+$ npm install -g eslint
+#### 初始化 ESLint 配置
+$ eslint --init
+在生成的.eslintrc.js 文件的rules中配置
+配置详情（https://blog.csdn.net/weixin_44198965/article/details/99839604）
+#### 代码检测
+在package.json的scripts下
+"lint-fix": "eslint --fix --ext .js --ext .jsx --ext .vue src/ test/unit test/e2e/specs",
+npm run lint-fix
+<!-- unit测试
+npm run lint -- --fix -->
 
 ### mook数据
 
